@@ -44,6 +44,7 @@ jobs:
       - name: 执行股票分析
         env:
           # Gemini AI
+          QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }} 
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL || secrets.GEMINI_MODEL || 'gemini-3-flash-preview' }}
           GEMINI_MODEL_FALLBACK: ${{ vars.GEMINI_MODEL_FALLBACK || secrets.GEMINI_MODEL_FALLBACK || 'gemini-2.5-flash' }}
@@ -64,6 +65,7 @@ jobs:
           
           # 通知渠道（可同时配置多个，全部推送）
           # 方式一：企业微信
+          WECHAT_WORK_WEBHOOK: ${{ secrets.WECHAT_WORK_WEBHOOK }}
           WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
           # 方式二：飞书
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
